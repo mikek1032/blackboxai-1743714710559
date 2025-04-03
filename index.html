@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari vs Ford Race</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        #gameCanvas {
+            background-image: url('https://images.pexels.com/photos/1638459/pexels-photo-1638459.jpeg');
+            background-size: cover;
+        }
+        .car {
+            position: absolute;
+            width: 80px;
+            height: 160px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl font-bold text-center mb-8 text-red-600">Ferrari vs Ford Race</h1>
+        
+        <!-- Start Screen -->
+        <div id="startScreen" class="text-center">
+            <div class="flex justify-center space-x-8 mb-8">
+                <div class="car-option p-4 rounded-lg cursor-pointer hover:bg-gray-800" data-car="ferrari">
+                    <img src="https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg" alt="Ferrari" class="w-64 h-36 object-cover rounded">
+                    <p class="mt-2 text-xl">Ferrari</p>
+                </div>
+                <div class="car-option p-4 rounded-lg cursor-pointer hover:bg-gray-800" data-car="ford">
+                    <img src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg" alt="Ford" class="w-64 h-36 object-cover rounded">
+                    <p class="mt-2 text-xl">Ford GT</p>
+                </div>
+            </div>
+            <button id="startBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full text-xl">
+                Start Race <i class="fas fa-flag-checkered ml-2"></i>
+            </button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="hidden">
+            <div class="flex">
+                <div class="w-3/4 relative">
+                    <canvas id="gameCanvas" width="800" height="500" class="border-4 border-gray-700 rounded-lg"></canvas>
+                </div>
+                <div class="w-1/4 pl-4">
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <h2 class="text-2xl font-bold mb-4">Race Info</h2>
+                        <div class="mb-4">
+                            <p class="text-lg">Time: <span id="timer">30</span>s</p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="text-lg">Ferrari Speed: <span id="ferrariSpeed">0</span> km/h</p>
+                        </div>
+                        <div>
+                            <p class="text-lg">Ford Speed: <span id="fordSpeed">0</span> km/h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="hidden text-center">
+            <h2 id="winnerText" class="text-4xl font-bold mb-8"></h2>
+            <img id="winnerImage" src="" alt="Winner" class="mx-auto w-96 h-64 object-cover rounded-lg mb-8">
+            <button id="restartBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-xl">
+                Race Again <i class="fas fa-redo ml-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
